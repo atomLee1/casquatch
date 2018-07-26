@@ -152,7 +152,7 @@ The code generator reverse engineers the schema to create POJOs with Datastax an
 * View an individual file:
 * UDT : ``` /generator/template/udtmodels/{schema}/{type}/{file_name}```
 * Table: ```/generator/template/models/{schema}/{table}/{file_name}```
-* Cachable Table (See [Driver Cache](#drivercache) Below): ```/generator/template/models/{schema}/{table}/cachable/{file_name}```
+* Cachable Table (See [Driver Cache](#driver-cache) Below): ```/generator/template/models/{schema}/{table}/cachable/{file_name}```
 * Generate package of all models:
   * Powershell: ```Invoke-WebRequest http://localhost:8080/generator/{KEYSPACE}/download/powershell -o run.ps1;./run.ps1```
   * Bash: ```curl http://localhost:8080/generator/{KEYSPACE}/download/bash | bash```
