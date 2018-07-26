@@ -147,12 +147,8 @@ This project is designed to provide a java abstraction layer for the Cassandra d
 
 ### Code Generator
 The code generator reverse engineers the schema to create POJOs with Datastax annotations. This is used during the install script but can also be run manually by downloading the jar.
-* Configure Project
-* Create application.properties as defined in [Configuration](#configuration) section
-* Run jar
-```
-java -jarCassandraGenerator-X.Y-RELEASE.war
-```
+* Configure Project as defined in [Configuration](#configuration) section
+* Run jar: ```java -jarCassandraGenerator-X.Y-RELEASE.war```
 * View an individual file:
 * UDT : ``` /generator/template/udtmodels/{schema}/{type}/{file_name}```
 * Table: ```/generator/template/models/{schema}/{table}/{file_name}```
