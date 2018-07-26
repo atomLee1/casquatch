@@ -36,7 +36,7 @@ This project is designed to provide a java abstraction layer for the Cassandra d
 * Supports Spring Autowire
 
 ## Implementation
-### Install From Source
+### Install
 * Clone
   ```
   git clone -b "X.Y-RELEASE" http://github.com/tmobile/casquatch
@@ -150,24 +150,17 @@ The code generator reverse engineers the schema to create POJOs with Datastax an
 * Configure Project
 * Create application.properties as defined in [Configuration](#configuration) section
 * Run jar
-* java -jarCassandraGenerator-X.Y-RELEASE.war
+```
+java -jarCassandraGenerator-X.Y-RELEASE.war
+```
 * View an individual file:
-* UDT : /generator/template/udtmodels/{schema}/{type}/{file_name}
-* Table: /generator/template/models/{schema}/{table}/{file_name}
-* Cachable Table (See [Driver Cache](#drivercache) Below): /generator/template/models/{schema}/{table}/cachable/{file_name}
+* UDT : ``` /generator/template/udtmodels/{schema}/{type}/{file_name}```
+* Table: ```/generator/template/models/{schema}/{table}/{file_name}```
+* Cachable Table (See [Driver Cache](#drivercache) Below): ```/generator/template/models/{schema}/{table}/cachable/{file_name}```
 * Generate package of all models:
-* Powershell
-```
-Invoke-WebRequest http://localhost:8080/generator/{KEYSPACE}/download/powershell -o run.ps1;./run.ps1
-```
-* Bash:
-```
-curl http://localhost:8080/generator/{KEYSPACE}/download/bash | bash
-```
-* Optionally install locally via maven
-```
-mvn install
-```
+  * Powershell: ```Invoke-WebRequest http://localhost:8080/generator/{KEYSPACE}/download/powershell -o run.ps1;./run.ps1```
+  * Bash: ```curl http://localhost:8080/generator/{KEYSPACE}/download/bash | bash```
+* Optionally install locally via maven: ```mvn install```
 
 ### Builder Configuration
 While Spring is the simplest method of configuration, the driver also supports the builder pattern for configuration. (See Javadoc CassandraDriver.Builder for specifics). This allows a driver to be built explicitly similar to the following. All settings will be defaulted as defined above with options to configure as necessary.
