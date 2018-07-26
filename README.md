@@ -8,11 +8,12 @@
    3. [Add to Code](#add-to-code)
 4. [Configuration](#configuration)
 5. [Feature Details](#feature-details)
-   1. [Builder Configuration](#builder-configuration)
-   2. [Driver Config](#driver-config)
-   3. [Driver Cache](#driver-cache)
-   4. [Solr](#solr)
-   5. [Spring Config](#spring-config)
+   1. [Code Generator](#code-generator)
+   2. [Builder Configuration](#builder-configuration)
+   3. [Driver Config](#driver-config)
+   4. [Driver Cache](#driver-cache)
+   5. [Solr](#solr)
+   6. [Spring Config](#spring-config)
 6. [Release Notes](#release-notes)
 
 
@@ -35,7 +36,7 @@ This project is designed to provide a java abstraction layer for the Cassandra d
 * Supports Spring Autowire
 
 ## Implementation
-### Install
+### Install From Source
 * Clone
   ```
   git clone -b "X.Y-RELEASE" http://github.com/tmobile/casquatch
@@ -143,6 +144,31 @@ This project is designed to provide a java abstraction layer for the Cassandra d
 | security.user.password | | | SPRING CONFIG SERVER ONLY : Password |
 
 ## Feature details
+
+### Code Generator
+The code generator reverse engineers the schema to create POJOs with Datastax annotations. This is used during the install script but can also be run manually by downloading the jar.
+* Configure Project
+* Create application.properties as defined in [Configuration](#configuration) section
+* Run jar
+* java -jarCassandraGenerator-X.Y-RELEASE.war
+* View an individual file:
+* UDT : /generator/template/udtmodels/{schema}/{type}/{file_name}
+* Table: /generator/template/models/{schema}/{table}/{file_name}
+* Cachable Table (See [Driver Cache](#drivercache) Below): /generator/template/models/{schema}/{table}/cachable/{file_name}
+* Generate package of all models:
+* Powershell
+```
+Invoke-WebRequest http://localhost:8080/generator/{KEYSPACE}/download/powershell -o run.ps1;./run.ps1
+```
+* Bash:
+```
+curl http://localhost:8080/generator/{KEYSPACE}/download/bash | bash
+```
+* Optionally install locally via maven
+```
+mvn install
+```
+
 ### Builder Configuration
 While Spring is the simplest method of configuration, the driver also supports the builder pattern for configuration. (See Javadoc CassandraDriver.Builder for specifics). This allows a driver to be built explicitly similar to the following. All settings will be defaulted as defined above with options to configure as necessary.
 
