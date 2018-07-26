@@ -6,7 +6,7 @@
   <groupId>com.tmobile.opensource.casquatch</groupId>
 	<artifactId>SpringConfigServer</artifactId>
 	<version>1.2-RELEASE</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <name>Project Casquatch - Spring Config Server</name>
   <description>Spring Config Server component of Project Casquatch</description>
@@ -82,6 +82,10 @@
           <source>${java.version}</source>
           <target>${java.version}</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>
