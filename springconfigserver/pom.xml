@@ -59,11 +59,6 @@
       <artifactId>CassandraDriver</artifactId>
       <version>1.2-RELEASE</version>
     </dependency>
-    <dependency>
-      <groupId>com.tmobile.opensource.casquatch.springconfig</groupId>
-      <artifactId>CassandraGenerator-Models-springconfig</artifactId>
-      <version>1.2-RELEASE</version>
-    </dependency>
   </dependencies>
 
   <properties>
